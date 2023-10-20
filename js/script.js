@@ -34,18 +34,9 @@ function handleTouchMove(event) {
   let xDif = x2 - x1;
   let yDif = y2 - y1;
 
-  if (Math.abs(xDif) > Math.abs(yDif)) {
-    if (xDif > 0) console.log("right");
-    else console.log("left");
-  } else {
-    if (yDif > 0 && yDif > 50) {
-      paranja.classList.remove("open");
-      formWrapper.classList.remove("open");
-      body.classList.remove("block");
-      console.log("bottom");
-      console.log(yDif);
-    } else {
-      console.log("top");
-    }
+  if (Math.abs(xDif) < Math.abs(yDif) && yDif > 0 && yDif > 50 && event.touches.length === 1) {
+    paranja.classList.remove("open");
+    formWrapper.classList.remove("open");
+    body.classList.remove("block");
   }
 }
